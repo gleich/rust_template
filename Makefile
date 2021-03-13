@@ -12,7 +12,7 @@ build-dev:
 	cargo build
 
 build-docker-prod:
-	docker build -f docker/Dockerfile -t docker_username/project_name:latest .
+	docker build -f docker/prod.Dockerfile -t docker_username/project_name:latest .
 
 build-docker-dev:
 	docker build -f docker/dev.Dockerfile -t docker_username/project_name:dev .

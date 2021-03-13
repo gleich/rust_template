@@ -1,0 +1,32 @@
+name: lint
+
+on:
+  - push
+  - pull_request
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt
+          override: true
+      - run: rustfmt --check src/main.rs
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Linting prod.Dockerfile
+        uses: brpaz/hadolint-action@master
+        with:
+          dockerfile: 'prod.Dockerfile'
+      - name: Linting dev.Dockerfile
+        uses: brpaz/hadolint-action@master
+        with:
+          dockerfile: 'dev.Dockerfile'
