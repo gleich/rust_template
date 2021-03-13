@@ -2,8 +2,8 @@
 # Build #
 #########
 
-build: prod-build dev-build docker-build-prod docker-build-dev
-build-docker: docker-build-prod docker-build-dev
+build: build-prod build-dev build-docker-prod build-docker-dev
+build-docker: build-docker-prod build-docker-dev
 
 build-prod:
 	cargo build --release

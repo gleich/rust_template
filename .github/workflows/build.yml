@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - run: make docker-build-prod
+      - run: make build-docker-prod
