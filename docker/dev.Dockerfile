@@ -14,7 +14,7 @@ RUN apk add --no-cache --update make
 RUN rm -rf /var/cache/apk/*
 
 # Build binary
-RUN make build-prod
+RUN make build-dev
 
 # hadolint ignore=DL3006,DL3007
 FROM alpine:latest
