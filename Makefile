@@ -24,7 +24,7 @@ build-docker-dev:
 lint: lint-rust lint-dockerfiles
 
 lint-rust:
-	rustfmt --check src/main.rs
+	cargo fmt
 
 lint-dockerfiles:
 	hadolint docker/Dockerfile
