@@ -1,22 +1,46 @@
 name: build
 
-on: push
+on:
+  - push
+  - pull_request
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  cargo:
+  rust:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2
-      - run: cargo check
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            rust:
+              - '**.rs'
+              - 'Makefile.toml'
+              - 'Cargo.lock'
+              - '.github/workflows/**'
+      - if: steps.changes.outputs.rust == 'true'
+        uses: davidB/rust-cargo-make@v1
+      - if: steps.changes.outputs.rust == 'true'
+        run: cargo make build-rust
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - run: make build-docker-prod
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            docker:
+              - '**.Dockerfile'
+              - 'Makefile.toml'
+              - '.github/workflows/**'
+      - if: steps.changes.outputs.docker == 'true'
+        uses: davidB/rust-cargo-make@v1
+      - if: steps.changes.outputs.docker == 'true'
+        run: cargo make build-docker
