@@ -1,7 +1,7 @@
 import os
 import shutil
 
-shutil.rmtree("./target")
+shutil.rmtree("./target", ignore_errors=True)
 
 
 def ls_files(dir):
