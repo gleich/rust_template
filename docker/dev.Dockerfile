@@ -18,4 +18,9 @@ RUN cargo make build-rust-dev
 FROM alpine:latest
 WORKDIR /
 COPY --from=builder /usr/src/app/target/debug/project_name .
+
+# Setting env vars
+ENV RUST_LOG info
+ENV RUST_BACKTRACE 1
+
 CMD ["./project_name"]
