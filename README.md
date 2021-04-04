@@ -10,7 +10,7 @@ project_description
 
 ## 🙌 Contributing
 
-We would love to have your contributing! Please read the [contributing guide](CONTRIBUTING.md) before submitting a pull-request. Thank you in advance!
+We would love to have you contribute! Please read the [contributing guide](CONTRIBUTING.md) before submitting a pull request. Thank you in advance!
 
 <!-- prettier-ignore-start -->
 <!-- DO NOT REMOVE - contributor_list:start -->

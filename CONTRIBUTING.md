@@ -34,4 +34,4 @@ project_name uses a GitHub action called [gh_fsync](https://github.com/Matt-Glei
 
 ---
 
-Thats all, good luck on your contribution and please make an issue if anything doesn't make sense.
+Thats all, good luck with your contribution, and please make an issue if anything doesn't make sense.
