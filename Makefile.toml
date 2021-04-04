@@ -41,6 +41,16 @@ args = [
 ]
 
 ########
+# Test #
+########
+[tasks.test]
+dependencies = ["test-rust"]
+
+[tasks.test-rust]
+command = "cargo"
+args = ["test"]
+
+########
 # Lint #
 ########
 [tasks.lint]
