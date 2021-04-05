@@ -25,7 +25,7 @@ args = [
     "-f",
     "docker/prod.Dockerfile",
     "-t",
-    "mattgleich/full-tilt-sort:latest",
+    "mattgleich/project_name:latest",
     "."
 ]
 
@@ -36,7 +36,7 @@ args = [
     "-f",
     "docker/dev.Dockerfile",
     "-t",
-    "mattgleich/full-tilt-sort:dev",
+    "mattgleich/project_name:dev",
     "."
 ]
 
