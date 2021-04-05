@@ -28,7 +28,7 @@ jobs:
         uses: davidB/rust-cargo-make@v1
       - if: steps.changes.outputs.rust == 'true'
         run: cargo make build-rust
-  docker:
+  docker-prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,4 +43,20 @@ jobs:
       - if: steps.changes.outputs.docker == 'true'
         uses: davidB/rust-cargo-make@v1
       - if: steps.changes.outputs.docker == 'true'
-        run: cargo make build-docker
+        run: cargo make build-docker-prod
+  docker-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            docker:
+              - '**.Dockerfile'
+              - 'Makefile.toml'
+              - '.github/workflows/**'
+      - if: steps.changes.outputs.docker == 'true'
+        uses: davidB/rust-cargo-make@v1
+      - if: steps.changes.outputs.docker == 'true'
+        run: cargo make build-docker-dev
