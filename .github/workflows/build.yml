@@ -37,7 +37,7 @@ jobs:
         with:
           filters: |
             docker:
-              - '**.Dockerfile'
+              - '**/prod.Dockerfile'
               - 'Makefile.toml'
               - '.github/workflows/**'
       - if: steps.changes.outputs.docker == 'true'
@@ -53,7 +53,7 @@ jobs:
         with:
           filters: |
             docker:
-              - '**.Dockerfile'
+              - '**/dev.Dockerfile'
               - 'Makefile.toml'
               - '.github/workflows/**'
       - if: steps.changes.outputs.docker == 'true'
