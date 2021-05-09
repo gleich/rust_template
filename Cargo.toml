@@ -3,5 +3,10 @@ name = "project_name"
 version = "0.1.0"
 authors = ["project_author_full_name <project_author_email>"]
 edition = "2018"
+repository = "https://github.com/github_username/project_name/"
+homepage = "https://github.com/github_username/project_name/"
+license = "MPL 2.0"
+edition = "2018"
+keywords = []
 
 [dependencies]
