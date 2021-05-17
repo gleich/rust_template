@@ -1,4 +1,4 @@
-commit_message: 'chore(syncing): sync files to latest version'
+commit_message: "chore(syncing): sync files to latest version"
 replace:
   - before: p\roject_name
     after: project_name
@@ -19,6 +19,8 @@ files:
     source: https://github.com/Matt-Gleich/rust_template/blob/main/Makefile.toml
   - path: rustfmt.toml
     source: https://github.com/Matt-Gleich/rust_template/blob/main/rustfmt.toml
+  - path: .dockerignore
+    source: https://github.com/Matt-Gleich/rust_template/blob/main/.dockerignore
   # Documentation
   - path: CONTRIBUTING.md
     source: https://github.com/Matt-Gleich/rust_template/blob/main/CONTRIBUTING.md
